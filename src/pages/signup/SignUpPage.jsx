@@ -49,10 +49,9 @@ const SignUpPage = () => {
   return (
     <Box minH='100vh' display='flex' alignItems='center' justifyContent='center'>
       <Box
-        bg='white'
         p={8}
         borderRadius='md'
-        boxShadow='lg'
+        boxShadow="2xl"
         maxW='sm'
         w='100%'
         className='signup-container'

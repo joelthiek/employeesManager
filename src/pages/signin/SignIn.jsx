@@ -62,11 +62,11 @@ const SignIn = () => {
       justifyContent="center"
     >
       <Box
-        bg="white"
         p={8}
         borderRadius="md"
-        boxShadow="lg"
+        boxShadow="2xl"
         maxW="sm"
+        // border="1px solid gray"
         w="100%"
         className="signup-container"
       >
@@ -74,7 +74,7 @@ const SignIn = () => {
           <Heading fontSize="2xl">
             Sign In
           </Heading>
-          <Text fontSize="md" color="gray.500">
+          <Text fontSize="md">
             Sign in to get started!
           </Text>
         </VStack>
