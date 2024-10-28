@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /node_modules
 =======
 # Logs
@@ -28,4 +28,3 @@ dist-ssr
 
 # dotenv
 .env
->>>>>>> 8c460d2 (initial commit)
