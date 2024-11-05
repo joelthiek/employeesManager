@@ -10,14 +10,15 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react"
-import React, { useContext } from "react"
+import React from "react"
 import { api_url } from "../../utils/firebase/firebase"
-import { EmployeeContext } from "../../utils/employeesContext/EmployeeContext"
+import { employeesActions } from "../../redux/slices/employeesSlice"
+import { useDispatch } from "react-redux"
+
 export default function DeleteButton({ emp_id }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = React.useRef()
-
-  const {getEmployees} = useContext(EmployeeContext)
+  const dispatch = useDispatch()
 
   const toast = useToast()
 
@@ -34,7 +35,7 @@ export default function DeleteButton({ emp_id }) {
         isClosable: true,
       })
       onClose()
-      getEmployees()
+      dispatch(employeesActions())
     } catch (error) {
       console.log(error)
       toast({
@@ -72,7 +73,11 @@ export default function DeleteButton({ emp_id }) {
             <Button ref={cancelRef} onClick={onClose}>
               No
             </Button>
-            <Button colorScheme='red' ml={3} onClick={(()=> handleDelete(emp_id))}>
+            <Button
+              colorScheme='red'
+              ml={3}
+              onClick={() => handleDelete(emp_id)}
+            >
               Yes
             </Button>
           </AlertDialogFooter>

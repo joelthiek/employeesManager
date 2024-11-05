@@ -12,9 +12,10 @@ import {
   Select,
   useToast,
 } from "@chakra-ui/react"
-import React, { useContext, useEffect } from "react"
+import React, {useEffect } from "react"
 import { api_url } from "../../utils/firebase/firebase"
-import { EmployeeContext } from "../../utils/employeesContext/EmployeeContext"
+import { employeesActions } from "../../redux/slices/employeesSlice"
+import { useDispatch } from "react-redux"
 
 
 const FormModal = ({
@@ -32,8 +33,7 @@ const FormModal = ({
   const [date, setDate] = React.useState("")
   const [department,setDepartment] = React.useState("")
 
-  const {getEmployees } = useContext(EmployeeContext)
-
+  const dispatch = useDispatch()
 
   const toast = useToast()
 
@@ -108,7 +108,7 @@ const FormModal = ({
       })
 
       handleCloseModal()
-      getEmployees()
+      dispatch(employeesActions())
     } catch (error) {
       console.log(error)
       toast({
@@ -161,7 +161,7 @@ const FormModal = ({
       })
 
       handleCloseModal()
-      getEmployees()
+      dispatch(employeesActions())
       
     } catch (error) {
       console.log(error)
